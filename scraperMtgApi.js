@@ -32,7 +32,7 @@ function downloadCardsImages({
                 }));
 
             saveCardsImages({
-                    name: body.card.name,
+                    name: body.card.id,
                     url: body.card.imageUrl,
                     db: mongoCursor,
                     card: body.card
@@ -71,17 +71,8 @@ function saveCardsImages({
             });
 
             res.on('end', () => {
-                let date = new Date();
-                name += '_' + date.getFullYear() +
-                    '-' + (date.getMonth() + 1) +
-                    '-' + date.getHours() +
-                    '-' + date.getMinutes() +
-                    '-' + date.getSeconds() +
-                    '-' + date.getMilliseconds();
-
                 console.log(name, url);
 
-                card['namePath'] = name;
                 mongoDb.insert(db, "cards", card, (saved) => {
                     if (saved) {
                         fs.writeFileSync(`./img/${name}.jpg`, data.read());
