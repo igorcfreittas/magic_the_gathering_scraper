@@ -2,11 +2,10 @@
   "name": "mtg",
   "version": "1.0.0",
   "description": "",
-  "main": "crawlerMtgApi.js",
+  "main": "scraperMtgApi.js",
   "dependencies": {
-    "mongoose": "^5.3.1",
-    "request": "^2.88.0",
-    "mongodb": "^2.2.33"
+    "mongodb": "^2.2.33",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
