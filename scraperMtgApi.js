@@ -32,7 +32,7 @@ function downloadCardsImages({
                 }));
 
             saveCardsImages({
-                    name: body.card.id,
+                    nameId: body.card.id,
                     url: body.card.imageUrl,
                     db: mongoCursor,
                     card: body.card
@@ -53,12 +53,12 @@ function downloadCardsImages({
 }
 
 function saveCardsImages({
-    name = "",
+    nameId = "",
     url = "",
     db = null,
     card = null
 }) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         http.request(url, (res) => {
             let data = new Stream();
 
@@ -71,11 +71,11 @@ function saveCardsImages({
             });
 
             res.on('end', () => {
-                console.log(name, url);
+                console.log(nameId, url);
 
                 mongoDb.insert(db, "cards", card, (saved) => {
                     if (saved) {
-                        fs.writeFileSync(`./img/${name}.jpg`, data.read());
+                        fs.writeFileSync(`./img/${nameId}.jpg`, data.read());
                         resolve(true);
                     } else {
                         resolve(false);
