@@ -81,6 +81,7 @@ function saveCardsImages({
 
                 console.log(name, url);
 
+                card['namePath'] = name;
                 mongoDb.insert(db, "cards", card, (saved) => {
                     if (saved) {
                         fs.writeFileSync(`./img/${name}.jpg`, data.read());
