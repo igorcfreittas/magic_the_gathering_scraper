@@ -8,6 +8,7 @@ Node.js : https://nodejs.org/en/
 
 MongoDB : https://www.mongodb.com/
 
+Magic the Gathering IO: https://magicthegathering.io/
 
 1. Você precisa ter o node juntamente com o npm instalado em sua máquina, para verificar: node -v, npm -v
 Versões utilizadas: Node 8.12 e Npm 6.4.1 (Não obrigatoriamente necessárias, somente a título de informação).

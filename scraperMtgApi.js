@@ -12,7 +12,7 @@ mongoDb.connection((db) => {
 });
 
 function downloadCardsImages({
-    cont = 47,
+    cont = 1,
     db = null
 }) {
     let mongoCursor = (typeof db !== undefined) ? db : null;
