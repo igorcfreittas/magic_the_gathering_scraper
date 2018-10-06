@@ -32,3 +32,7 @@ module.exports.find = (db, collection, condition, callback) => {
         callback(results);
     });
 };
+
+module.exports.close = (db) => {
+    db.close();
+}
