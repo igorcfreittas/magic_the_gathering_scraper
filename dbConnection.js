@@ -1,4 +1,4 @@
-const 
+const
     MongoClient = require('mongodb').MongoClient,
     assert = require('assert'),
     url = 'mongodb://localhost:27017',
@@ -10,20 +10,23 @@ module.exports.connection = (callback) => {
         assert.equal(null, err);
 
         callback(client.db(dbName));
-        // client.close();
     });
 };
 
-module.exports.insert = (db, collection, obj, callback) => {
-    db.collection(collection).insert(obj, function(err, results) {
-        if(results.result.ok === 1)
-            callback(true)
-        else throw err;
-    });
+module.exports.insert = (db, collection, card, callback) => {
+    try {
+        db.collection(collection).replaceOne({
+            id: card.id
+        }, card, {
+            upsert: true
+        }, callback(true));
+    } catch (e) {
+        throw e;
+    }
 };
 
 module.exports.find = (db, collection, condition, callback) => {
-    db.collection(collection).find(condition).toArray(function(err, results) {
+    db.collection(collection).find(condition).toArray(function (err, results) {
         if (err) throw err;
 
         callback(results);
