@@ -16,7 +16,7 @@
 
 4. No console será mostrado o nome da carta baixada e a url da carta;
 
-5. Obrigatoriamente precisa-se do "MongoDB" instalado para cadastrar o nome das imagens no banco, o banco será criado automaticamente, com o nome de "mtg" e coleção "cards", certifique-se de que o serviço do mongo esta rodando.
+5. Obrigatoriamente precisa-se do `MongoDB` instalado para cadastrar o nome das imagens no banco, o banco será criado automaticamente, com o nome de `mtg` e coleção `cards`, certifique-se de que o serviço do mongo esta rodando.
 
 6. As imagens são salvas com uma data completa para evitar duplicidade de nomes, porem, também salva-se nome real da carta, as cartas com nomes compostos serão utilizadas para procurar imagens na pasta que será de busca de imagens para aplicações do lado do cliente.
 
