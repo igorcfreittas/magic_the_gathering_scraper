@@ -12,7 +12,7 @@ mongoDb.connection((db) => {
 });
 
 function downloadCardsImages({
-    cont = 9850,
+    cont = 0,
     db = null
 }) {
     let mongoCursor = (typeof db !== undefined) ? db : null;
@@ -25,30 +25,30 @@ function downloadCardsImages({
             if (err)
                 reject(err);
 
-            if (body.card === undefined) {
+            if ('card' in body) {
+                saveCardsImages({
+                    nameId: body.card.id,
+                    url: body.card.imageUrl,
+                    db: mongoCursor,
+                    card: body.card
+                })
+                .then(saved => {
+                    if (saved)
+                        resolve(downloadCardsImages({
+                            cont: ++cont,
+                            db: mongoCursor
+                        }));
+                    else
+                        console.error('Insert failed.');
+                }, err => {
+                    console.error(err);
+                });
+            }else {
                 resolve(downloadCardsImages({
                     cont: ++cont,
                     db: mongoCursor
                 }));
-            }else {
-                saveCardsImages({
-                        nameId: body.card.id,
-                        url: body.card.imageUrl,
-                        db: mongoCursor,
-                        card: body.card
-                    })
-                    .then(saved => {
-                        if (saved)
-                            resolve(downloadCardsImages({
-                                cont: ++cont,
-                                db: mongoCursor
-                            }));
-                        else
-                            console.error('Insert failed.');
-                    }, err => {
-                        console.error(err);
-                    });
-                }
+            }
         });
     });
 }
@@ -76,7 +76,7 @@ function saveCardsImages({
 
                 mongoDb.insert(db, "cards", card, (saved) => {
                     if (saved) {
-                        fs.writeFileSync(`../img/${nameId}.jpg`, data.read());
+                        fs.writeFileSync(`../../img/${nameId}.jpg`, data.read());
                         resolve(true);
                     } else {
                         resolve(false);

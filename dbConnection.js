@@ -2,7 +2,7 @@ const
     MongoClient = require('mongodb').MongoClient,
     assert = require('assert'),
     url = 'mongodb://localhost:27017',
-    dbName = 'mtg';
+    dbName = 'mtg'; //change to your db name
 
 
 module.exports.connection = (callback) => {
@@ -24,15 +24,3 @@ module.exports.insert = (db, collection, card, callback) => {
         throw e;
     }
 };
-
-module.exports.find = (db, collection, condition, callback) => {
-    db.collection(collection).find(condition).toArray(function (err, results) {
-        if (err) throw err;
-
-        callback(results);
-    });
-};
-
-module.exports.close = (db) => {
-    db.close();
-}
