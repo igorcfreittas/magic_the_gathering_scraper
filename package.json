@@ -1,0 +1,39 @@
+{
+  "name": "mtg-scraper",
+  "version": "0.0.1",
+  "description": "Magic the gathering scraper",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorcfreittas/magic_the_gathering_scraper.git"
+  },
+  "keywords": [
+    "npm",
+    "scraper",
+    "mtg",
+    "card",
+    "game",
+    "javascript",
+    "node",
+    "js",
+    "node.js"
+  ],
+  "author": "igorcfreittas@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igorcfreittas/magic_the_gathering_scraper/issues"
+  },
+  "homepage": "https://github.com/igorcfreittas/magic_the_gathering_scraper#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "request": "^2.88.0",
+    "stream": "0.0.2"
+  },
+  "dependencies": {
+    "mongodb": "^3.1.8"
+  }
+}
