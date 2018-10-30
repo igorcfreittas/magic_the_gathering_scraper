@@ -1,4 +1,4 @@
-#Magic The Gathering Scraper
+# Magic The Gathering Scraper
 ## Para começar
 ###### Técnologias utilizadas:
 
