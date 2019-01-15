@@ -18,6 +18,6 @@
 
 5. Obrigatoriamente precisa-se do `MongoDB` instalado para cadastrar o nome das imagens no banco, o banco será criado automaticamente, com o nome de `mtg` e coleção `cards`, certifique-se de que o serviço do mongo esta rodando.
 
-6. As imagens são salvas com uma data completa para evitar duplicidade de nomes, porem, também salva-se nome real da carta, as cartas com nomes compostos serão utilizadas para procurar imagens na pasta que será de busca de imagens para aplicações do lado do cliente.
+6. As imagens são salvas com o ID que vem da prórpria estrutura do JSON da carta, evitando que cartas com o nomes iguais (edições diferentes) sobrepoẽm umas as outras.
 
 7. O ultimo passo é esperar baixar todas as cartas, este script esta sendo atualizando no momento e pode ser que aconteça erros inesperados.
